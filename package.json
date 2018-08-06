@@ -1,0 +1,19 @@
+{
+  "name": "github-avatar-downloader",
+  "version": "1.0.0",
+  "description": "Downloads all contributors' avatars from a given github repo.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jordanyoungs/github-avatar-downloader.git"
+  },
+  "author": "Jordan Youngs",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/jordanyoungs/github-avatar-downloader/issues"
+  },
+  "homepage": "https://github.com/jordanyoungs/github-avatar-downloader#readme"
+}
