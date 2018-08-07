@@ -40,5 +40,3 @@ getRepoContributors(owner, name, function(err, result) {
     downloadImageByURL(contributor.avatar_url, "./avatars/" + contributor.login + ".jpg");
   }
 });
-
-downloadImageByURL("https://avatars2.githubusercontent.com/u/2741?v=3&s=466", "./kvirani.jpg")
