@@ -4,7 +4,14 @@ var secrets = require("./secrets.js");
 var owner = process.argv[2];
 var name = process.argv[3];
 
-console.log('Welcome to the GithubAvatar Downloader!');
+if (!owner) {
+  console.log("Must provide repo owner argument!");
+  return;
+}
+if (!name) {
+  console.log("Must provide repo name argument!");
+  return;
+}
 
 function getRepoContributors(repoOwner, repoName, cb) {
   var options = {
