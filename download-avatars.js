@@ -24,8 +24,9 @@ function downloadImageByURL(url, filePath) {
 
 getRepoContributors("jquery", "jquery", function(err, result) {
   console.log("Errors:", err);
+  fs.mkdirSync("./avatars");
   for (var contributor of result) {
-    console.log(contributor.avatar_url);
+    downloadImageByURL(contributor.avatar_url, "./avatars/" + contributor.login + ".jpg");
   }
 });
 
