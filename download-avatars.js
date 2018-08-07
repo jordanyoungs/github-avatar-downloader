@@ -1,6 +1,8 @@
 var request = require("request");
 var fs = require("fs");
 var secrets = require("./secrets.js");
+var owner = process.argv[2];
+var name = process.argv[3];
 
 console.log('Welcome to the GithubAvatar Downloader!');
 
@@ -22,9 +24,11 @@ function downloadImageByURL(url, filePath) {
   request(url).pipe(fs.createWriteStream(filePath));
 }
 
-getRepoContributors("jquery", "jquery", function(err, result) {
+getRepoContributors(owner, name, function(err, result) {
   console.log("Errors:", err);
-  fs.mkdirSync("./avatars");
+  if (!fs.existsSync("./avatars")) {
+    fs.mkdirSync("./avatars");
+  }
   for (var contributor of result) {
     downloadImageByURL(contributor.avatar_url, "./avatars/" + contributor.login + ".jpg");
   }
