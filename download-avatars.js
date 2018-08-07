@@ -1,6 +1,6 @@
 var request = require("request");
 var fs = require("fs");
-var secrets = require("secrets.js");
+var secrets = require("./secrets.js");
 
 console.log('Welcome to the GithubAvatar Downloader!');
 
@@ -14,7 +14,7 @@ function getRepoContributors(repoOwner, repoName, cb) {
   };
 
   request(options, function(err, res, body) {
-    cb(err, body);
+    cb(err, JSON.parse(body));
   });
   // var error = null;
   // request.get("https://api.github.com/repos/" + repoOwner + "/" + repoName
@@ -29,5 +29,7 @@ function getRepoContributors(repoOwner, repoName, cb) {
 
 getRepoContributors("jquery", "jquery", function(err, result) {
   console.log("Errors:", err);
-  console.log("Result:", result);
+  for (var contributor of result) {
+    console.log(contributor.avatar_url);
+  }
 });
